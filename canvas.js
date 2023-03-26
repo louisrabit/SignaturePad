@@ -65,3 +65,17 @@ document.getElementById('clear').addEventListener('click', function() {
         link.click();
         link.delete;
       });
+
+
+
+      canvas.addEventListener("touchstart", function(event){
+      lastX = event.touches[0].clientX-canvas.offsetLeft;
+      lastY = event.touches[0].clientY-canvas.offsetTop;
+      });
+
+      canvas.addEventListener("touchmove", function(event){
+        event.preventDefault();
+        var x = event.touches[0].clientX-canvas.offsetLeft;
+        var y = event.touches[0].clientY-canvas.offsetLeft;
+        isDrawing(x,y);
+      })
