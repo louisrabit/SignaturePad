@@ -1,12 +1,12 @@
 body {
     height: 100vh;  
-    background-color: black;
+    background-color: rgb(114, 24, 24);
   }
   
   canvas {  
-    background-color: #f36666;
+    background-color:lightgray ;
     border-radius: 15px;
-    border: 5px solid rgb(35, 109, 82); 
+    border: 5px solid rgb(4, 4, 4); 
    /*  padding-left: 0;
     padding-right: 0;
     margin-left: auto;
@@ -28,7 +28,7 @@ body {
           border-radius: 10px;
           position: relative;
           padding: 10px;
-          background-color: #57c4e5;
+          background-color: #70d5cc98;
           border: 3px solid black;
           color: black;
           display: block-inline;

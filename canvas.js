@@ -68,7 +68,9 @@ document.getElementById('clear').addEventListener('click', function() {
 
 
 
-      canvas.addEventListener("touchstart", function(event){
+      // phone touch screen 
+
+      /* canvas.addEventListener("touchstart", function(event){
       lastX = event.touches[0].clientX-canvas.offsetLeft;
       lastY = event.touches[0].clientY-canvas.offsetTop;
       });
@@ -78,4 +80,4 @@ document.getElementById('clear').addEventListener('click', function() {
         var x = event.touches[0].clientX-canvas.offsetLeft;
         var y = event.touches[0].clientY-canvas.offsetLeft;
         isDrawing(x,y);
-      })
+      }) */
