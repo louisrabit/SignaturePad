@@ -45,105 +45,51 @@ ctx.lineWidth = 3;
 canvas.addEventListener('mouseup', () => {
   isDrawing = false;
 });
+/* ..........................................
+------------------------------------------- */
 
 
 
-      // phone touch screen 
-
-      /* canvas.addEventListener("touchstart", function(event){
-      lastX = event.touches[0].clientX-canvas.offsetLeft;
-      lastY = event.touches[0].clientY-canvas.offsetTop;
-      });
-
-      canvas.addEventListener("touchmove", function(event){
-        event.preventDefault();
-        var x = event.touches[0].clientX-canvas.offsetLeft;
-        var y = event.touches[0].clientY-canvas.offsetLeft;
-        isDrawing(x,y);
-      }) */
-
-    
-      function onTouch(evt) {
-        evt.preventDefault();
-        if (
-          evt.touches.length > 1 ||
-          (evt.type === "touchend" && evt.touches.length > 0)
-        )
-          return;
-      
-        const newEvt = document.createEvent("MouseEvents");
-        let type = null;
-        let touch = null;
-      
-        switch (evt.type) {
-          case "touchstart":
-            type = "mousedown";
-            touch = evt.changedTouches[0];
-            break;
-          case "touchmove":
-            type = "mousemove";
-            touch = evt.changedTouches[0];
-            break;
-          case "touchend":
-            type = "mouseup";
-            touch = evt.changedTouches[0];
-            break;
-        }
-      
-        newEvt.initMouseEvent(
-          type,
-          true,
-          true,
-          evt.originalTarget.ownerDocument.defaultView,
-          0,
-          touch.screenX,
-          touch.screenY,
-          touch.clientX,
-          touch.clientY,
-          evt.ctrlKey,
-          evt.altKey,
-          evt.shiftKey,
-          evt.metaKey,
-          0,
-          null
-        );
-        evt.originalTarget.dispatchEvent(newEvt);
-      }
-      
-
-
-
-
-
-
-
-
-
-
-      
-    
-    
-//clear button
-document.getElementById('clear').addEventListener('click', function() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+canvas.addEventListener('touchstart', (event) => {
+isDrawing = true;
+[lastX, lastY] = [event.clientX, event.clientY];
+});
+canvas.addEventListener('touchmove', (event) => {
+if (!isDrawing) return;
+ctx.beginPath();
+ctx.moveTo(lastX, lastY);''
+ctx.lineTo(event.clientX,  event.clientY);
+ctx.lineWidth = 3;
+ctx.stroke();
+[lastX, lastY] = [event.clientX, event.clientY];
+});
+canvas.addEventListener('touchend', () => {
+isDrawing = false;
 });
 
 
 
 
 
-    //save png file 
-    const download = document.getElementById('download');
-    download.addEventListener('click', function (e) {
-      const link = document.createElement('a');
-      link.download = 'download.png';
-      link.href = canvas.toDataURL();
-      link.click();
-      link.delete;
-    });
+//clear button
+document.getElementById('clear').addEventListener('click', function() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  });
 
 
-    
-    
-       
-    
+
+
+
+      //save png file 
+      const download = document.getElementById('download');
+      download.addEventListener('click', function (e) {
+        const link = document.createElement('a');
+        link.download = 'download.png';
+        link.href = canvas.toDataURL();
+        link.click();
+        link.delete;
+      });
+
+
+
+     
