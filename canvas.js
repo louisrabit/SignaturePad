@@ -82,7 +82,7 @@ y: touchEvent.touches[0].clientY - rect.top
 }
 
 // Prevent scrolling when touching the canvas
-document.body.addEventListener("touchstart", function (e) {
+/* document.body.addEventListener("touchstart", function (e) {
   if (e.target == canvas) {
     e.preventDefault();
   }
@@ -96,7 +96,7 @@ document.body.addEventListener("touchmove", function (e) {
   if (e.target == canvas) {
     e.preventDefault();
   }
-}, false);
+}, false); */
 
 
 //clear button
