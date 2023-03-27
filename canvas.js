@@ -62,7 +62,7 @@ canvas.addEventListener('mouseup', () => {
         isDrawing(x,y);
       }) */
 
-      canvas.addEventListener('touchstart', (event) => {
+      canvas.addEventListener('ontouchstart', (event) => {
         //defines variable as true 
       isDrawing = true;
       //store values inicial properties "store" of event in the variables latX/lastY
@@ -72,7 +72,7 @@ canvas.addEventListener('mouseup', () => {
     
     //when user move mouse
     //check first if isdrawing is true , if not function return , and dont do nothing 
-    canvas.addEventListener('touchmove', (event) => {
+    canvas.addEventListener('tontouchmove', (event) => {
       if (!isDrawing) return;
     
       //if function is true , call beginPath of redering context of ctx
@@ -95,7 +95,7 @@ canvas.addEventListener('mouseup', () => {
       [lastX, lastY] = [event.clientX, event.clientY];
     });
     
-    canvas.addEventListener('touchend', () => {
+    canvas.addEventListener('ontouchend', () => {
       isDrawing = false;
     });
     
