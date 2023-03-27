@@ -62,46 +62,65 @@ canvas.addEventListener('mouseup', () => {
         isDrawing(x,y);
       }) */
 
-      canvas.addEventListener('ontouchstart', (event) => {
-        //defines variable as true 
-      isDrawing = true;
-      //store values inicial properties "store" of event in the variables latX/lastY
-      [lastX, lastY] = [event.clientX, event.clientY];
-    });
     
-    
-    //when user move mouse
-    //check first if isdrawing is true , if not function return , and dont do nothing 
-    canvas.addEventListener('tontouchmove', (event) => {
-      if (!isDrawing) return;
-    
-      //if function is true , call beginPath of redering context of ctx
-      ctx.beginPath();
-      //first values stores in variables lastX, lastY
-      ctx.moveTo(lastX, lastY);
-    
-      // event property of js that have coordinaties X/y that occur the event related with elemenet that receive that event .
-      //not supported with previous editions of browser so we use CLIENTX/CLIENTY
-    /*   ctx.lineTo(event.offsetX,  event.offsetY); */
-    
-    //final mouse coordinate 
-    ctx.lineTo(event.clientX,  event.clientY);
-    
-    // Bold line (change line ) == thickness
-    ctx.lineWidth = 3;
-    //draw the line 
-      ctx.stroke();
-      //update the values with final coordinates of the final point of the drawing 
-      [lastX, lastY] = [event.clientX, event.clientY];
-    });
-    
-    canvas.addEventListener('ontouchend', () => {
-      isDrawing = false;
-    });
-    
-    
-    
-    
+      function onTouch(evt) {
+        evt.preventDefault();
+        if (
+          evt.touches.length > 1 ||
+          (evt.type === "touchend" && evt.touches.length > 0)
+        )
+          return;
+      
+        const newEvt = document.createEvent("MouseEvents");
+        let type = null;
+        let touch = null;
+      
+        switch (evt.type) {
+          case "touchstart":
+            type = "mousedown";
+            touch = evt.changedTouches[0];
+            break;
+          case "touchmove":
+            type = "mousemove";
+            touch = evt.changedTouches[0];
+            break;
+          case "touchend":
+            type = "mouseup";
+            touch = evt.changedTouches[0];
+            break;
+        }
+      
+        newEvt.initMouseEvent(
+          type,
+          true,
+          true,
+          evt.originalTarget.ownerDocument.defaultView,
+          0,
+          touch.screenX,
+          touch.screenY,
+          touch.clientX,
+          touch.clientY,
+          evt.ctrlKey,
+          evt.altKey,
+          evt.shiftKey,
+          evt.metaKey,
+          0,
+          null
+        );
+        evt.originalTarget.dispatchEvent(newEvt);
+      }
+      
+
+
+
+
+
+
+
+
+
+
+      
     
     
 //clear button
