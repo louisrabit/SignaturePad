@@ -1,6 +1,7 @@
 body {
     height: 100vh;  
     background-color: rgb(114, 24, 24);
+     position: fixed;
   }
   
   canvas {  
