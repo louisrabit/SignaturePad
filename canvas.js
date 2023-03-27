@@ -1,7 +1,7 @@
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
-canvas.width = 400;
-canvas.height = 250;
+canvas.width = 500;
+canvas.height = 300;
 
 let isDrawing = false;
 let lastX = 0;
@@ -81,22 +81,7 @@ y: touchEvent.touches[0].clientY - rect.top
 };
 }
 
-// Prevent scrolling when touching the canvas
-/* document.body.addEventListener("touchstart", function (e) {
-  if (e.target == canvas) {
-    e.preventDefault();
-  }
-}, false);
-document.body.addEventListener("touchend", function (e) {
-  if (e.target == canvas) {
-    e.preventDefault();
-  }
-}, false);
-document.body.addEventListener("touchmove", function (e) {
-  if (e.target == canvas) {
-    e.preventDefault();
-  }
-}, false); */
+
 
 
 //clear button

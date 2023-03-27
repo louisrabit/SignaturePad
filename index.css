@@ -1,13 +1,14 @@
 body {
     height: 100vh;  
     background-color: rgb(114, 24, 24);
-     position: fixed;
+   
   }
   
   canvas {  
     background-color:lightgray ;
     border-radius: 15px;
     border: 5px solid rgb(4, 4, 4); 
+ 
    /*  padding-left: 0;
     padding-right: 0;
     margin-left: auto;
@@ -19,6 +20,7 @@ body {
   
   #canvas-wrap{
     position: relative;
+  
   }
   
   
@@ -48,7 +50,7 @@ body {
     left: 190px;
   }
 
-
+/* Hack to css to stop page reload/ */
   .lock-screen {
     height: 100%;
     overflow: hidden;
