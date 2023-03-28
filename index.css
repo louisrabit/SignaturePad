@@ -14,7 +14,7 @@ background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+
 }
 
 canvas {  
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255) ;
   border-radius: 15px;
   border: 5px solid rgb(4, 4, 4); 
   max-width: 100%;
@@ -70,6 +70,7 @@ input::placeholder {
   canvas {
     margin-top: 20px;
     margin-left: -5px;
+    background-color: rgb(255, 255, 255) ;
   }
 
   #download, #clear {
@@ -81,6 +82,7 @@ input::placeholder {
 @media screen and (max-width: 480px) {
   canvas {
     margin-top: 10px;
+    background-color: rgb(255, 255, 255) ;
   }
 
   #download, #clear {
