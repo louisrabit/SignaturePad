@@ -1,59 +1,90 @@
+
 body {
-    height: 100vh;  
-    background-color: rgb(114, 24, 24);
-   
-  }
-  
-  canvas {  
-    background-color:lightgray ;
-    border-radius: 15px;
-    border: 5px solid rgb(4, 4, 4); 
- 
-   /*  padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 45px;
-    display: block; */
-   
-  }
-  
-  #canvas-wrap{
-    position: relative;
-  
-  }
-  
-  
-   #download, #clear {
-          font-size: large;
-          width: 200px;
-          height: 50px;
-          border-radius: 10px;
-          position: relative;
-          padding: 10px;
-          background-color: #70d5cc98;
-          border: 3px solid black;
-          color: black;
-          display: block-inline;
-          margin-top: 25px;
-
-        }
-  
-  #download:hover, #clear:hover {
-    background-color: rgb(41, 70, 92);
-    color: aliceblue;
-  }
-  
-  #text {
-    position:relative;
-    font-weight: bold;
-    left: 190px;
-  }
-
-/* Hack to css to stop page reload/ */
-  .lock-screen {
-    height: 100%;
-    overflow: hidden;
-    width: 100%;
-    position: fixed;
+  height: 100vh;  
+  background-color: rgb(114, 24, 24);
+  text-align: center;
+  overflow: hidden;
+  scrollbar-width: none;
+  touch-action: none;
 }
+
+canvas {  
+  background-color: lightgray;
+  border-radius: 15px;
+  border: 5px solid rgb(4, 4, 4); 
+  max-width: 100%;
+  margin-top: 30px;
+}
+
+#download, #clear {
+  text-decoration: none;
+  font-size: large;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: #70d5cc98;
+  border: 3px solid black;
+  color: black;
+  display: inline-block;
+  margin-top: 25px;
+  margin-right: 10px;
+}
+
+#download:hover, #clear:hover {
+  cursor: pointer;
+  background-color: lightblue;
+  color: rgb(35, 71, 100);
+}
+
+#text {
+  position: relative;
+  font-weight: bold;
+  left: 190px;
+}
+
+
+input {
+  width: 400px;
+  padding: 15px 4px;
+  border: none;
+  border-bottom: 2px solid black;
+  border-radius: 10px;
+  text-decoration: none;
+  position: relative;
+  left: -5px;
+  margin-top: 5px;
+}
+
+input::placeholder {
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  canvas {
+    margin-top: 20px;
+    margin-left: -5px;
+  }
+
+  #download, #clear {
+    margin-top: 15px;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  canvas {
+    margin-top: 10px;
+  }
+
+  #download, #clear {
+    width: 150px;
+    height: 40px;
+    margin-top: 10px;
+  }
+
+  #text {
+    left: 120px;
+  }
+}
+
