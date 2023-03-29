@@ -66,16 +66,23 @@ document.getElementById('clear').addEventListener('click', function() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
 
+document.getElementById('clear').addEventListener('click', function() {
+  inputName.value = ""
+});
+
 // Download button
 const download = document.getElementById('download');
 download.addEventListener('click', function (e) {
   // Create a new anchor element
   const link = document.createElement('a');
-  link.download = 'download.png';
+  link.download = inputName.value + '.png';
   // Set the href of the anchor element to the data URL of the canvas image
   link.href = canvas.toDataURL();
   // Dispatch a click event on the anchor element to trigger the download
   link.click();
   // Remove the anchor element from the DOM
   link.remove();
+  inputName.value = '';
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
 });
